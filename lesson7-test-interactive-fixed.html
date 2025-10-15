@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧊 Lesson 7 Vocabulary Test - Arctic Adventure!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 4px solid #00d2ff;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .header p {
+            font-size: 1.4em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .progress-container {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 3px solid #00d2ff;
+        }
+
+        .progress-bar {
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5, #00c6ff);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 15px;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .navigation {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            border: 3px solid #00d2ff;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 3px solid #00d2ff;
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            color: #0072ff;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .fun-fact-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #2196f3;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .fun-fact-box h3 {
+            color: #1565c0;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .question-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .question-number {
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .choice-option {
+            background: #e9ecef;
+            padding: 15px 20px;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 16px;
+        }
+
+        .choice-option:hover {
+            background: #dee2e6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .choice-option.selected {
+            background: #cce7ff;
+            border-color: #00d2ff;
+            transform: translateY(-2px);
+        }
+
+        .choice-option.correct {
+            background: #d4edda !important;
+            border-color: #28a745 !important;
+        }
+
+        .choice-option.incorrect {
+            background: #f8d7da !important;
+            border-color: #dc3545 !important;
+        }
+
+        .hint-box {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #28a745;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hint-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn.secondary {
+            background: linear-gradient(45deg, #fd79a8, #fdcb6e);
+        }
+
+        .sentence-input, .replacement-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .sentence-input:focus, .replacement-input:focus {
+            border-color: #00d2ff;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .option-group {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+        }
+
+        .synonym-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .synonym-pair {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+            text-align: center;
+        }
+
+        .results-container {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border: 4px solid #e17055;
+            text-align: center;
+            display: none;
+        }
+
+        .stars {
+            font-size: 4em;
+            margin: 25px 0;
+            animation: twinkle 1s ease infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.5; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        .score-display {
+            font-size: 2.5em;
+            color: #d63031;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .synonym-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧊 Lesson 7 Vocabulary Test</h1>
+            <p>Join the scientists on their frigid expedition to discover fascinating secrets! ❄️🔬</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p id="progressText">Progress: 0% Complete</p>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn active" onclick="showSection('intro')">🌟 Instructions</button>
+            <button class="nav-btn" onclick="showSection('sectionA')">📝 A: Finding Meanings</button>
+            <button class="nav-btn" onclick="showSection('sectionB')">✏️ B: Just the Right Word</button>
+            <button class="nav-btn" onclick="showSection('sectionC')">🎯 C: Applying Meanings</button>
+            <button class="nav-btn" onclick="showSection('sectionD')">🔄 D: Word Study</button>
+            <button class="nav-btn" onclick="showSection('sectionE')">📖 E: Passage</button>
+            <button class="nav-btn" onclick="showSection('quiz')">🧠 Ultimate Quiz</button>
+            <button class="nav-btn" onclick="showSection('results')">🏆 Results</button>
+        </div>
+
+        <!-- Instructions Section -->
+        <div id="intro" class="section active">
+            <h2>🌟 Welcome to Your Arctic Adventure!</h2>
+            
+            <div class="fun-fact-box">
+                <h3>🧊 Get Ready to Explore!</h3>
+                <p>You're about to embark on an exciting vocabulary journey through the frigid Arctic! This test covers all the powerful words from Lesson 7. Each section tests your knowledge in a different way, just like different stages of a scientific expedition!</p>
+            </div>
+
+            <div class="question-container">
+                <h3>🧊 Your Lesson 7 Vocabulary Words:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>colony</strong><br>
+                        <em>a group living close together</em>
+                    </div>
+                    <div style="background: #f3e5f5; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>compensate</strong><br>
+                        <em>to make up for something</em>
+                    </div>
+                    <div style="background: #e8f5e8; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>frigid</strong><br>
+                        <em>very cold or unfriendly</em>
+                    </div>
+                    <div style="background: #fff3e0; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>huddle</strong><br>
+                        <em>to crowd together for warmth</em>
+                    </div>
+                    <div style="background: #fce4ec; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>remote</strong><br>
+                        <em>far away in time or space</em>
+                    </div>
+                    <div style="background: #e0f2f1; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>fascinate</strong><br>
+                        <em>to attract and hold interest</em>
+                    </div>
+                    <div style="background: #f1f8e9; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>harsh</strong><br>
+                        <em>rough, unpleasant, or cruel</em>
+                    </div>
+                    <div style="background: #e8eaf6; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>substantial</strong><br>
+                        <em>large in amount or important</em>
+                    </div>
+                    <div style="background: #fff8e1; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>temporary</strong><br>
+                        <em>lasting for a short time only</em>
+                    </div>
+                    <div style="background: #f9fbe7; padding: 15px; border-radius: 10px; text-align: center;">
+                        <strong>treacherous</strong><br>
+                        <em>not to be trusted or dangerous</em>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="showSection('sectionA')" style="font-size: 20px; padding: 20px 40px;">
+                    🚀 Start Your Arctic Journey!
+                </button>
+            </div>
+        </div>
+
+        <!-- Section A: Finding Meanings -->
+        <div id="sectionA" class="section">
+            <h2>📝 Section A: Finding Meanings</h2>
+            
+            <div class="fun-fact-box">
+                <h3>🎯 Instructions</h3>
+                <p>Choose two phrases to form a sentence that correctly uses a word from Word List 7. Write each sentence in the space provided.</p>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">1</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> a group of people, animals, or plants living close together.<br>
+                        <strong>(b)</strong> a very cold place where nothing grows.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> A colony is<br>
+                        <strong>(d)</strong> A remote area is
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="A colony is a group of people, animals, or plants living close together.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">2</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> to make up for something that was lost or damaged.<br>
+                        <strong>(b)</strong> to become very angry about something.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> To compensate is<br>
+                        <strong>(d)</strong> To fascinate is
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="To compensate is to make up for something that was lost or damaged.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">3</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> very cold or showing no warmth of feeling.<br>
+                        <strong>(b)</strong> lasting for a very long time.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> Something frigid is<br>
+                        <strong>(d)</strong> Something substantial is
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="Something frigid is very cold or showing no warmth of feeling.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">4</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> to crowd together for warmth or protection.<br>
+                        <strong>(b)</strong> to spread out over a large area.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> To huddle means<br>
+                        <strong>(d)</strong> To fascinate means
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="To huddle means to crowd together for warmth or protection.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">5</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> far away in time or space.<br>
+                        <strong>(b)</strong> very close and easy to reach.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> Something remote is<br>
+                        <strong>(d)</strong> Something harsh is
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="Something remote is far away in time or space.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">6</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> to attract and hold someone's interest strongly.<br>
+                        <strong>(b)</strong> to make someone feel very bored.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> To fascinate means<br>
+                        <strong>(d)</strong> To compensate means
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="To fascinate means to attract and hold someone's interest strongly.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">7</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> rough, unpleasant, or cruel.<br>
+                        <strong>(b)</strong> soft, gentle, and kind.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> Something harsh is<br>
+                        <strong>(d)</strong> Something temporary is
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="Something harsh is rough, unpleasant, or cruel.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">8</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> large in amount, size, or importance.<br>
+                        <strong>(b)</strong> very small and unimportant.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> Something substantial is<br>
+                        <strong>(d)</strong> Something treacherous is
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="Something substantial is large in amount, size, or importance.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">9</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> lasting for a short time only.<br>
+                        <strong>(b)</strong> lasting forever and never changing.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> Something temporary is<br>
+                        <strong>(d)</strong> Something remote is
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="Something temporary is lasting for a short time only.">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">10</div>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <strong>(a)</strong> not to be trusted; dangerous.<br>
+                        <strong>(b)</strong> completely safe and reliable.
+                    </div>
+                    <div class="option-group">
+                        <strong>(c)</strong> Something treacherous is<br>
+                        <strong>(d)</strong> Something frigid is
+                    </div>
+                </div>
+                <input type="text" class="sentence-input" placeholder="Write your complete sentence here..." data-answer="Something treacherous is not to be trusted; dangerous.">
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="checkSectionA()">✅ Check My Answers</button>
+                <button class="btn secondary" onclick="showSection('sectionB')">➡️ Next Section</button>
+            </div>
+        </div>
+
+        <!-- Section B: Just the Right Word -->
+        <div id="sectionB" class="section">
+            <h2>✏️ Section B: Just the Right Word</h2>
+            
+            <div class="fun-fact-box">
+                <h3>🎯 Instructions</h3>
+                <p>Replace each phrase in <strong>bold</strong> with a single word from Word List 7. The new word should have the same meaning as the phrase it replaces.</p>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">1</div>
+                <p>The scientists formed a <strong>group of people living close together</strong> at the research station.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="colony">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">2</div>
+                <p>The team had to <strong>make up for</strong> the broken equipment by working extra hours.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="compensate">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">3</div>
+                <p>The <strong>very cold</strong> wind made everyone shiver and seek shelter.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="frigid">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">4</div>
+                <p>The penguins <strong>crowded together for warmth</strong> during the blizzard.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="huddle">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">5</div>
+                <p>The research station was located in a <strong>far away</strong> area of Antarctica.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="remote">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">6</div>
+                <p>The aurora borealis never failed to <strong>attract and hold the interest of</strong> the visitors.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="fascinate">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">7</div>
+                <p>The <strong>rough and unpleasant</strong> conditions tested their endurance.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="harsh">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">8</div>
+                <p>They made a <strong>large and important</strong> discovery about climate change.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="substantial">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">9</div>
+                <p>The ice shelter was only a <strong>short-term</strong> solution to their housing problem.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="temporary">
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">10</div>
+                <p>The <strong>dangerous and not to be trusted</strong> ice made walking difficult.</p>
+                <input type="text" class="replacement-input" placeholder="Replace the bold phrase with one word..." data-answer="treacherous">
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="checkSectionB()">✅ Check My Answers</button>
+                <button class="btn secondary" onclick="showSection('sectionC')">➡️ Next Section</button>
+            </div>
+        </div>
+
+        <!-- Section C: Applying Meanings -->
+        <div id="sectionC" class="section">
+            <h2>🎯 Section C: Applying Meanings</h2>
+            
+            <div class="fun-fact-box">
+                <h3>🎯 Instructions</h3>
+                <p>Circle the letter or letters of each correct answer. A question may have more than one correct answer.</p>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">1</div>
+                <p>Which of the following might fascinate a scientist?</p>
+                <div class="choice-option" onclick="selectChoice(this, 1, ['a', 'c'])" data-value="a">(a) a new species of Arctic fish</div>
+                <div class="choice-option" onclick="selectChoice(this, 1, ['a', 'c'])" data-value="b">(b) a broken thermometer</div>
+                <div class="choice-option" onclick="selectChoice(this, 1, ['a', 'c'])" data-value="c">(c) unusual ice formations</div>
+                <div class="choice-option" onclick="selectChoice(this, 1, ['a', 'c'])" data-value="d">(d) a comfortable bed</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">2</div>
+                <p>Which of the following would be considered harsh conditions?</p>
+                <div class="choice-option" onclick="selectChoice(this, 2, ['a', 'b', 'd'])" data-value="a">(a) freezing temperatures</div>
+                <div class="choice-option" onclick="selectChoice(this, 2, ['a', 'b', 'd'])" data-value="b">(b) strong winds</div>
+                <div class="choice-option" onclick="selectChoice(this, 2, ['a', 'b', 'd'])" data-value="c">(c) warm sunshine</div>
+                <div class="choice-option" onclick="selectChoice(this, 2, ['a', 'b', 'd'])" data-value="d">(d) limited food supplies</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">3</div>
+                <p>Which of the following could be described as remote?</p>
+                <div class="choice-option" onclick="selectChoice(this, 3, ['a', 'c'])" data-value="a">(a) an Antarctic research station</div>
+                <div class="choice-option" onclick="selectChoice(this, 3, ['a', 'c'])" data-value="b">(b) a city shopping mall</div>
+                <div class="choice-option" onclick="selectChoice(this, 3, ['a', 'c'])" data-value="c">(c) a mountain peak</div>
+                <div class="choice-option" onclick="selectChoice(this, 3, ['a', 'c'])" data-value="d">(d) a school classroom</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">4</div>
+                <p>Which of the following might huddle together?</p>
+                <div class="choice-option" onclick="selectChoice(this, 4, ['a', 'b', 'c'])" data-value="a">(a) penguins in a storm</div>
+                <div class="choice-option" onclick="selectChoice(this, 4, ['a', 'b', 'c'])" data-value="b">(b) people around a campfire</div>
+                <div class="choice-option" onclick="selectChoice(this, 4, ['a', 'b', 'c'])" data-value="c">(c) animals seeking warmth</div>
+                <div class="choice-option" onclick="selectChoice(this, 4, ['a', 'b', 'c'])" data-value="d">(d) fish swimming alone</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">5</div>
+                <p>Which of the following would be considered substantial?</p>
+                <div class="choice-option" onclick="selectChoice(this, 5, ['a', 'c'])" data-value="a">(a) a major scientific discovery</div>
+                <div class="choice-option" onclick="selectChoice(this, 5, ['a', 'c'])" data-value="b">(b) a small pebble</div>
+                <div class="choice-option" onclick="selectChoice(this, 5, ['a', 'c'])" data-value="c">(c) a large iceberg</div>
+                <div class="choice-option" onclick="selectChoice(this, 5, ['a', 'c'])" data-value="d">(d) a single snowflake</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">6</div>
+                <p>Which of the following might be temporary?</p>
+                <div class="choice-option" onclick="selectChoice(this, 6, ['a', 'b', 'd'])" data-value="a">(a) a research expedition</div>
+                <div class="choice-option" onclick="selectChoice(this, 6, ['a', 'b', 'd'])" data-value="b">(b) an ice shelter</div>
+                <div class="choice-option" onclick="selectChoice(this, 6, ['a', 'b', 'd'])" data-value="c">(c) the North Pole</div>
+                <div class="choice-option" onclick="selectChoice(this, 6, ['a', 'b', 'd'])" data-value="d">(d) a summer job</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">7</div>
+                <p>Which of the following could be described as treacherous?</p>
+                <div class="choice-option" onclick="selectChoice(this, 7, ['a', 'c', 'd'])" data-value="a">(a) thin ice over water</div>
+                <div class="choice-option" onclick="selectChoice(this, 7, ['a', 'c', 'd'])" data-value="b">(b) a warm blanket</div>
+                <div class="choice-option" onclick="selectChoice(this, 7, ['a', 'c', 'd'])" data-value="c">(c) a steep cliff</div>
+                <div class="choice-option" onclick="selectChoice(this, 7, ['a', 'c', 'd'])" data-value="d">(d) a dishonest person</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">8</div>
+                <p>Which would form a colony?</p>
+                <div class="choice-option" onclick="selectChoice(this, 8, ['a', 'b', 'c'])" data-value="a">(a) Antarctic researchers</div>
+                <div class="choice-option" onclick="selectChoice(this, 8, ['a', 'b', 'c'])" data-value="b">(b) penguin families</div>
+                <div class="choice-option" onclick="selectChoice(this, 8, ['a', 'b', 'c'])" data-value="c">(c) seal groups</div>
+                <div class="choice-option" onclick="selectChoice(this, 8, ['a', 'b', 'c'])" data-value="d">(d) a single polar bear</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="checkSectionC()">✅ Check My Answers</button>
+                <button class="btn secondary" onclick="showSection('sectionD')">➡️ Next Section</button>
+            </div>
+        </div>
+
+        <!-- Section D: Word Study -->
+        <div id="sectionD" class="section">
+            <h2>🔄 Section D: Word Study</h2>
+            
+            <div class="fun-fact-box">
+                <h3>🎯 Instructions</h3>
+                <p>Write the word from the synonym bank that is the synonym for each vocabulary word.</p>
+            </div>
+
+            <div class="question-container">
+                <h3>Synonym Bank:</h3>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #dee2e6;">
+                    <strong>attract, bitter, crowd, dangerous, far, group, important, make-up-for, rough, short-term</strong>
+                </div>
+
+                <div class="synonym-grid">
+                    <div class="synonym-pair">
+                        <strong>1. colony</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="group">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>2. compensate</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="make-up-for">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>3. frigid</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="bitter">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>4. huddle</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="crowd">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>5. remote</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="far">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>6. fascinate</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="attract">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>7. harsh</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="rough">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>8. substantial</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="important">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>9. temporary</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="short-term">
+                    </div>
+                    <div class="synonym-pair">
+                        <strong>10. treacherous</strong><br>
+                        <input type="text" class="sentence-input" placeholder="Enter synonym..." data-answer="dangerous">
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="checkSectionD()">✅ Check My Answers</button>
+                <button class="btn secondary" onclick="showSection('sectionE')">➡️ Next Section</button>
+            </div>
+        </div>
+
+        <!-- Section E: Passage -->
+        <div id="sectionE" class="section">
+            <h2>📖 Section E: Passage</h2>
+            
+            <div class="fun-fact-box">
+                <h3>🎯 Instructions</h3>
+                <p>Read the passage and answer the questions that follow.</p>
+            </div>
+
+            <div class="question-container">
+                <h3>🧊 Arctic Research Station</h3>
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border: 2px solid #dee2e6; line-height: 1.6;">
+                    <p>Dr. Sarah Chen had always been fascinated by the Arctic. When she was offered the chance to join a research <strong>colony</strong> at the North Pole, she didn't hesitate. The <strong>remote</strong> location promised both challenges and discoveries.</p>
+                    
+                    <p>The journey to the research station was treacherous. <strong>Frigid</strong> winds and <strong>harsh</strong> conditions tested the team's resolve. When they finally arrived, the scientists had to <strong>huddle</strong> together in their <strong>temporary</strong> shelters while the permanent buildings were being constructed.</p>
+                    
+                    <p>Dr. Chen's first major discovery was <strong>substantial</strong>. She found evidence of climate change that would help scientists understand global warming patterns. However, the broken equipment meant the team had to <strong>compensate</strong> by using older, less accurate instruments.</p>
+                    
+                    <p>The <strong>treacherous</strong> ice conditions made outdoor research dangerous, but Dr. Chen knew that the work they were doing would <strong>fascinate</strong> scientists around the world. Even though their stay was <strong>temporary</strong>, lasting only six months, the data they collected would have a lasting impact on climate science.</p>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">1</div>
+                    <p>What does "colony" mean in this passage?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="research group">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">2</div>
+                    <p>Why was the location described as "remote"?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="far away">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">3</div>
+                    <p>What made the journey "treacherous"?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="dangerous conditions">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">4</div>
+                    <p>How did the scientists deal with the cold when they arrived?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="huddled together">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">5</div>
+                    <p>What does "substantial" mean when describing Dr. Chen's discovery?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="important">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">6</div>
+                    <p>How did the team "compensate" for the broken equipment?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="used older instruments">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">7</div>
+                    <p>What made the ice conditions "treacherous"?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="dangerous">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">8</div>
+                    <p>Why would the research "fascinate" other scientists?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="interesting discoveries">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">9</div>
+                    <p>How long was their "temporary" stay?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="six months">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">10</div>
+                    <p>What does "frigid" describe in the passage?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="winds">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">11</div>
+                    <p>What were the "harsh" conditions?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="difficult weather">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">12</div>
+                    <p>Why did Dr. Chen not hesitate to join the expedition?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="fascinated by Arctic">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">13</div>
+                    <p>What type of shelters did they use at first?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="temporary">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">14</div>
+                    <p>What would have a lasting impact on climate science?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="data collected">
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">15</div>
+                    <p>What did Dr. Chen find evidence of?</p>
+                    <input type="text" class="sentence-input" placeholder="Enter your answer..." data-answer="climate change">
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="checkSectionE()">✅ Check My Answers</button>
+                <button class="btn secondary" onclick="showSection('quiz')">➡️ Ultimate Quiz</button>
+            </div>
+        </div>
+
+        <!-- Ultimate Quiz Section -->
+        <div id="quiz" class="section">
+            <h2>🧠 Ultimate Quiz - Master Your Vocabulary!</h2>
+            
+            <div class="fun-fact-box">
+                <h3>🎯 Instructions</h3>
+                <p>Test your complete understanding with this comprehensive quiz!</p>
+            </div>
+
+            <div class="question-container">
+                <h3>Section 1: Find a SYNONYM for each underlined word</h3>
+                
+                <div class="question-container">
+                    <div class="question-number">1</div>
+                    <p>The scientists formed a <u>colony</u> at the research station.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q1', ['a'])" data-value="a">(a) group</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q1', ['a'])" data-value="b">(b) building</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q1', ['a'])" data-value="c">(c) experiment</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q1', ['a'])" data-value="d">(d) vehicle</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">2</div>
+                    <p>The <u>frigid</u> wind made everyone shiver.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q2', ['a'])" data-value="a">(a) freezing</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q2', ['a'])" data-value="b">(b) warm</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q2', ['a'])" data-value="c">(c) gentle</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q2', ['a'])" data-value="d">(d) quiet</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">3</div>
+                    <p>The team had to <u>compensate</u> for the broken equipment.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q3', ['a'])" data-value="a">(a) make up for</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q3', ['a'])" data-value="b">(b) ignore</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q3', ['a'])" data-value="c">(c) destroy</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q3', ['a'])" data-value="d">(d) celebrate</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">4</div>
+                    <p>The <u>harsh</u> conditions tested their endurance.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q4', ['a'])" data-value="a">(a) severe</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q4', ['a'])" data-value="b">(b) pleasant</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q4', ['a'])" data-value="c">(c) easy</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q4', ['a'])" data-value="d">(d) comfortable</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">5</div>
+                    <p>The penguins <u>huddle</u> together for warmth.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q5', ['a'])" data-value="a">(a) crowd</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q5', ['a'])" data-value="b">(b) separate</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q5', ['a'])" data-value="c">(c) fight</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q5', ['a'])" data-value="d">(d) swim</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">6</div>
+                    <p>The <u>remote</u> location was difficult to reach.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q6', ['a'])" data-value="a">(a) distant</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q6', ['a'])" data-value="b">(b) nearby</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q6', ['a'])" data-value="c">(c) popular</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q6', ['a'])" data-value="d">(d) crowded</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">7</div>
+                    <p>The discovery will <u>fascinate</u> scientists worldwide.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q7', ['a'])" data-value="a">(a) captivate</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q7', ['a'])" data-value="b">(b) bore</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q7', ['a'])" data-value="c">(c) confuse</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q7', ['a'])" data-value="d">(d) anger</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">8</div>
+                    <p>They made a <u>substantial</u> contribution to research.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q8', ['a'])" data-value="a">(a) significant</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q8', ['a'])" data-value="b">(b) tiny</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q8', ['a'])" data-value="c">(c) worthless</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q8', ['a'])" data-value="d">(d) accidental</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">9</div>
+                    <p>The shelter was only <u>temporary</u>.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q9', ['a'])" data-value="a">(a) short-term</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q9', ['a'])" data-value="b">(b) permanent</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q9', ['a'])" data-value="c">(c) expensive</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q9', ['a'])" data-value="d">(d) beautiful</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">10</div>
+                    <p>The <u>treacherous</u> ice was dangerous to cross.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q10', ['a'])" data-value="a">(a) hazardous</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q10', ['a'])" data-value="b">(b) safe</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q10', ['a'])" data-value="c">(c) colorful</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q10', ['a'])" data-value="d">(d) musical</div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h3>Section 2: Choose the BEST way to complete each sentence</h3>
+
+                <div class="question-container">
+                    <div class="question-number">11</div>
+                    <p>To fascinate someone is to...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q11', ['a'])" data-value="a">(a) capture their interest strongly</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q11', ['a'])" data-value="b">(b) make them feel sleepy</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q11', ['a'])" data-value="c">(c) cause them to be angry</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q11', ['a'])" data-value="d">(d) help them feel warm</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">12</div>
+                    <p>A colony is...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q12', ['a'])" data-value="a">(a) a group living together</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q12', ['a'])" data-value="b">(b) a type of building</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q12', ['a'])" data-value="c">(c) a scientific instrument</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q12', ['a'])" data-value="d">(d) a weather condition</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">13</div>
+                    <p>Something frigid is...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q13', ['a'])" data-value="a">(a) extremely cold</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q13', ['a'])" data-value="b">(b) very hot</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q13', ['a'])" data-value="c">(c) quite loud</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q13', ['a'])" data-value="d">(d) rather bright</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">14</div>
+                    <p>To huddle means to...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q14', ['a'])" data-value="a">(a) crowd together for protection</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q14', ['a'])" data-value="b">(b) spread out widely</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q14', ['a'])" data-value="c">(c) move very quickly</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q14', ['a'])" data-value="d">(d) make loud noises</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">15</div>
+                    <p>Something remote is...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q15', ['a'])" data-value="a">(a) far away</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q15', ['a'])" data-value="b">(b) very close</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q15', ['a'])" data-value="c">(c) extremely loud</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q15', ['a'])" data-value="d">(d) quite colorful</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">16</div>
+                    <p>To compensate means to...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q16', ['a'])" data-value="a">(a) make up for something</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q16', ['a'])" data-value="b">(b) completely ignore</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q16', ['a'])" data-value="c">(c) totally destroy</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q16', ['a'])" data-value="d">(d) loudly celebrate</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">17</div>
+                    <p>Harsh conditions are...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q17', ['a'])" data-value="a">(a) rough and difficult</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q17', ['a'])" data-value="b">(b) soft and gentle</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q17', ['a'])" data-value="c">(c) quiet and peaceful</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q17', ['a'])" data-value="d">(d) bright and colorful</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">18</div>
+                    <p>Something substantial is...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q18', ['a'])" data-value="a">(a) large and important</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q18', ['a'])" data-value="b">(b) tiny and worthless</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q18', ['a'])" data-value="c">(c) fast and quick</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q18', ['a'])" data-value="d">(d) loud and noisy</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">19</div>
+                    <p>Something temporary is...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q19', ['a'])" data-value="a">(a) lasting for a short time</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q19', ['a'])" data-value="b">(b) lasting forever</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q19', ['a'])" data-value="c">(c) very expensive</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q19', ['a'])" data-value="d">(d) extremely dangerous</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">20</div>
+                    <p>Something treacherous is...</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q20', ['a'])" data-value="a">(a) dangerous and untrustworthy</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q20', ['a'])" data-value="b">(b) safe and reliable</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q20', ['a'])" data-value="c">(c) helpful and kind</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q20', ['a'])" data-value="d">(d) peaceful and quiet</div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h3>Section 3: Complete each sentence using a vocabulary word</h3>
+
+                <div class="question-container">
+                    <div class="question-number">21</div>
+                    <p>The research _______ worked together to study Arctic wildlife.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q21', ['colony'])" data-value="colony">colony</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q21', ['colony'])" data-value="remote">remote</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q21', ['colony'])" data-value="harsh">harsh</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q21', ['colony'])" data-value="temporary">temporary</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">22</div>
+                    <p>The team had to _______ for the missing supplies by rationing food.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q22', ['compensate'])" data-value="compensate">compensate</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q22', ['compensate'])" data-value="fascinate">fascinate</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q22', ['compensate'])" data-value="huddle">huddle</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q22', ['compensate'])" data-value="substantial">substantial</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">23</div>
+                    <p>The _______ temperatures made it impossible to work outside.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q23', ['frigid'])" data-value="frigid">frigid</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q23', ['frigid'])" data-value="temporary">temporary</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q23', ['frigid'])" data-value="remote">remote</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q23', ['frigid'])" data-value="substantial">substantial</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">24</div>
+                    <p>The _______ ice conditions made travel extremely dangerous.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q24', ['treacherous'])" data-value="treacherous">treacherous</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q24', ['treacherous'])" data-value="temporary">temporary</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q24', ['treacherous'])" data-value="remote">remote</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q24', ['treacherous'])" data-value="substantial">substantial</div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number">25</div>
+                    <p>The Arctic wildlife never failed to _______ the visiting scientists.</p>
+                    <div class="choice-option" onclick="selectChoice(this, 'q25', ['fascinate'])" data-value="fascinate">fascinate</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q25', ['fascinate'])" data-value="compensate">compensate</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q25', ['fascinate'])" data-value="huddle">huddle</div>
+                    <div class="choice-option" onclick="selectChoice(this, 'q25', ['fascinate'])" data-value="temporary">temporary</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="checkQuiz()">✅ Check My Quiz</button>
+                <button class="btn secondary" onclick="showSection('results')">➡️ See Results</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="section">
+            <div class="results-container">
+                <div class="stars">🌟⭐✨🎉⭐🌟</div>
+                <h2>🏆 Congratulations! 🏆</h2>
+                <div class="score-display" id="finalScore">Your Score: 0/78</div>
+                <p id="finalMessage">You've completed your Arctic vocabulary adventure!</p>
+                
+                <div style="margin: 30px 0;">
+                    <h3>📊 Section Breakdown:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div style="background: #e3f2fd; padding: 15px; border-radius: 10px;">
+                            <strong>Section A</strong><br>
+                            <span id="scoreA">0/10</span> Finding Meanings
+                        </div>
+                        <div style="background: #f3e5f5; padding: 15px; border-radius: 10px;">
+                            <strong>Section B</strong><br>
+                            <span id="scoreB">0/10</span> Just the Right Word
+                        </div>
+                        <div style="background: #e8f5e8; padding: 15px; border-radius: 10px;">
+                            <strong>Section C</strong><br>
+                            <span id="scoreC">0/8</span> Applying Meanings
+                        </div>
+                        <div style="background: #fff3e0; padding: 15px; border-radius: 10px;">
+                            <strong>Section D</strong><br>
+                            <span id="scoreD">0/10</span> Word Study
+                        </div>
+                        <div style="background: #fce4ec; padding: 15px; border-radius: 10px;">
+                            <strong>Section E</strong><br>
+                            <span id="scoreE">0/15</span> Passage
+                        </div>
+                        <div style="background: #e0f2f1; padding: 15px; border-radius: 10px;">
+                            <strong>Ultimate Quiz</strong><br>
+                            <span id="scoreQuiz">0/25</span> Comprehensive
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn" onclick="restartTest()">🔄 Try Again</button>
+                <button class="btn secondary" onclick="showSection('intro')">🏠 Back to Start</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = 'intro';
+        let scores = {
+            sectionA: 0,
+            sectionB: 0,
+            sectionC: 0,
+            sectionD: 0,
+            sectionE: 0,
+            quiz: 0
+        };
+        let maxScores = {
+            sectionA: 10,
+            sectionB: 10,
+            sectionC: 8,
+            sectionD: 10,
+            sectionE: 15,
+            quiz: 25
+        };
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            currentSection = sectionId;
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const totalSections = 6;
+            const completedSections = Object.values(scores).filter(score => score > 0).length;
+            const progress = (completedSections / totalSections) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Progress: ${Math.round(progress)}% Complete`;
+        }
+
+        function checkSectionA() {
+            let score = 0;
+            const inputs = document.querySelectorAll('#sectionA .sentence-input');
+            
+            inputs.forEach(input => {
+                const userAnswer = input.value.toLowerCase().trim();
+                const correctAnswer = input.dataset.answer.toLowerCase();
+                
+                if (userAnswer.includes(correctAnswer.split(' ').slice(-3).join(' ')) || 
+                    userAnswer.includes(correctAnswer.split(' ').slice(-4).join(' '))) {
+                    input.style.borderColor = '#28a745';
+                    input.style.backgroundColor = '#d4edda';
+                    score++;
+                } else {
+                    input.style.borderColor = '#dc3545';
+                    input.style.backgroundColor = '#f8d7da';
+                    input.placeholder = `Correct: ${input.dataset.answer}`;
+                }
+            });
+            
+            scores.sectionA = score;
+            alert(`Section A Complete! You got ${score} out of ${maxScores.sectionA} correct!`);
+            updateProgress();
+        }
+
+        function checkSectionB() {
+            let score = 0;
+            const inputs = document.querySelectorAll('#sectionB .replacement-input');
+            
+            inputs.forEach(input => {
+                const userAnswer = input.value.toLowerCase().trim();
+                const correctAnswer = input.dataset.answer.toLowerCase();
+                
+                if (userAnswer === correctAnswer || userAnswer === correctAnswer + 's' || userAnswer === correctAnswer + 'ed' || userAnswer === correctAnswer + 'ing') {
+                    input.style.borderColor = '#28a745';
+                    input.style.backgroundColor = '#d4edda';
+                    score++;
+                } else {
+                    input.style.borderColor = '#dc3545';
+                    input.style.backgroundColor = '#f8d7da';
+                    input.placeholder = `Correct: ${input.dataset.answer}`;
+                }
+            });
+            
+            scores.sectionB = score;
+            alert(`Section B Complete! You got ${score} out of ${maxScores.sectionB} correct!`);
+            updateProgress();
+        }
+
+        function selectChoice(element, questionId, correctAnswers) {
+            const value = element.dataset.value;
+            element.classList.toggle('selected');
+            
+            setTimeout(() => {
+                if (correctAnswers.includes(value)) {
+                    element.classList.add('correct');
+                } else {
+                    element.classList.add('incorrect');
+                }
+            }, 500);
+        }
+
+        function checkSectionC() {
+            let score = 0;
+            const questions = document.querySelectorAll('#sectionC .question-container');
+            
+            questions.forEach((question, index) => {
+                const selectedOptions = question.querySelectorAll('.choice-option.selected');
+                const correctOptions = question.querySelectorAll('.choice-option.correct');
+                
+                if (selectedOptions.length === correctOptions.length) {
+                    let allCorrect = true;
+                    selectedOptions.forEach(option => {
+                        if (!option.classList.contains('correct')) {
+                            allCorrect = false;
+                        }
+                    });
+                    if (allCorrect) score++;
+                }
+            });
+            
+            scores.sectionC = score;
+            alert(`Section C Complete! You got ${score} out of ${maxScores.sectionC} correct!`);
+            updateProgress();
+        }
+
+        function checkSectionD() {
+            let score = 0;
+            const inputs = document.querySelectorAll('#sectionD .sentence-input');
+            
+            inputs.forEach(input => {
+                const userAnswer = input.value.toLowerCase().trim();
+                const correctAnswer = input.dataset.answer.toLowerCase();
+                
+                if (userAnswer === correctAnswer) {
+                    input.style.borderColor = '#28a745';
+                    input.style.backgroundColor = '#d4edda';
+                    score++;
+                } else {
+                    input.style.borderColor = '#dc3545';
+                    input.style.backgroundColor = '#f8d7da';
+                    input.placeholder = `Correct: ${input.dataset.answer}`;
+                }
+            });
+            
+            scores.sectionD = score;
+            alert(`Section D Complete! You got ${score} out of ${maxScores.sectionD} correct!`);
+            updateProgress();
+        }
+
+        function checkSectionE() {
+            let score = 0;
+            const inputs = document.querySelectorAll('#sectionE .sentence-input');
+            
+            inputs.forEach(input => {
+                const userAnswer = input.value.toLowerCase().trim();
+                const correctAnswer = input.dataset.answer.toLowerCase();
+                
+                if (userAnswer.includes(correctAnswer) || correctAnswer.includes(userAnswer)) {
+                    input.style.borderColor = '#28a745';
+                    input.style.backgroundColor = '#d4edda';
+                    score++;
+                } else {
+                    input.style.borderColor = '#dc3545';
+                    input.style.backgroundColor = '#f8d7da';
+                    input.placeholder = `Correct: ${input.dataset.answer}`;
+                }
+            });
+            
+            scores.sectionE = score;
+            alert(`Section E Complete! You got ${score} out of ${maxScores.sectionE} correct!`);
+            updateProgress();
+        }
+
+        function checkQuiz() {
+            let score = 0;
+            const questions = document.querySelectorAll('#quiz .question-container .choice-option.selected');
+            
+            questions.forEach(option => {
+                if (option.classList.contains('correct')) {
+                    score++;
+                }
+            });
+            
+            scores.quiz = score;
+            alert(`Ultimate Quiz Complete! You got ${score} out of ${maxScores.quiz} correct!`);
+            updateProgress();
+        }
+
+        function showResults() {
+            const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+            const totalPossible = Object.values(maxScores).reduce((a, b) => a + b, 0);
+            const percentage = Math.round((totalScore / totalPossible) * 100);
+            
+            document.getElementById('finalScore').textContent = `Your Score: ${totalScore}/${totalPossible}`;
+            document.getElementById('scoreA').textContent = `${scores.sectionA}/${maxScores.sectionA}`;
+            document.getElementById('scoreB').textContent = `${scores.sectionB}/${maxScores.sectionB}`;
+            document.getElementById('scoreC').textContent = `${scores.sectionC}/${maxScores.sectionC}`;
+            document.getElementById('scoreD').textContent = `${scores.sectionD}/${maxScores.sectionD}`;
+            document.getElementById('scoreE').textContent = `${scores.sectionE}/${maxScores.sectionE}`;
+            document.getElementById('scoreQuiz').textContent = `${scores.quiz}/${maxScores.quiz}`;
+            
+            let message = '';
+            if (percentage >= 90) {
+                message = '🌟 Outstanding! You\'ve mastered Arctic vocabulary! 🌟';
+            } else if (percentage >= 80) {
+                message = '🎉 Excellent work! You\'re an Arctic vocabulary expert! 🎉';
+            } else if (percentage >= 70) {
+                message = '👏 Great job! You\'ve got a solid grasp of the vocabulary! 👏';
+            } else if (percentage >= 60) {
+                message = '👍 Good effort! Keep practicing to improve! 👍';
+            } else {
+                message = '💪 Keep studying! You\'ll get better with practice! 💪';
+            }
+            
+            document.getElementById('finalMessage').textContent = message;
+            document.querySelector('.results-container').style.display = 'block';
+        }
+
+        function restartTest() {
+            scores = {
+                sectionA: 0,
+                sectionB: 0,
+                sectionC: 0,
+                sectionD: 0,
+                sectionE: 0,
+                quiz: 0
+            };
+            
+            // Reset all inputs and selections
+            document.querySelectorAll('input').forEach(input => {
+                input.value = '';
+                input.style.borderColor = '';
+                input.style.backgroundColor = '';
+                input.placeholder = input.getAttribute('placeholder') || '';
+            });
+            
+            document.querySelectorAll('.choice-option').forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            updateProgress();
+            showSection('intro');
+        }
+
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
